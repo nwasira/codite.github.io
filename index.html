@@ -18,22 +18,19 @@
             font-size: 3em;
             font-weight: bold;
             text-decoration: none;
-            color: #ffffff;
-            background: linear-gradient(90deg, 
-                red, orange, yellow, green, cyan, blue, violet);
-            background-size: 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow 5s linear infinite;
+            color: red;
+            animation: rainbow 7s infinite;
         }
 
         @keyframes rainbow {
-            0% {
-                background-position: 0%;
-            }
-            100% {
-                background-position: 100%;
-            }
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: cyan; }
+            71% { color: blue; }
+            85% { color: violet; }
+            100% { color: red; }
         }
 
         a:hover {
