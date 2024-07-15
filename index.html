@@ -7,15 +7,17 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: black;
+            flex-direction: column;
+            padding-top: 20px;
         }
 
         a {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: bold;
             text-decoration: none;
             color: red;
@@ -36,9 +38,17 @@
         a:hover {
             text-decoration: underline;
         }
+
+        audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <a href="mailto:contact@codite.me">[ COMING SOON ]</a>
+    <audio autoplay>
+        <source src="bg-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
