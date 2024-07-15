@@ -46,9 +46,24 @@
 </head>
 <body>
     <a href="mailto:contact@codite.me">[ COMING SOON ]</a>
-    <audio autoplay>
+    <audio id="background-music" loop>
         <source src="bg-music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            var audio = document.getElementById("background-music");
+            audio.volume = 0.4;
+            audio.play().catch(error => {
+                console.log("Autoplay failed:", error);
+            });
+
+            document.body.addEventListener('click', function() {
+                audio.play();
+            });
+        });
+    </script>
 </body>
 </html>
