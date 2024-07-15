@@ -6,17 +6,34 @@
     <title>Coming Soon</title>
     <style>
         body {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: black;
+            color: white;
             flex-direction: column;
-            padding-top: 20px;
         }
 
-        a {
+        #enter, #main-content {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #enter {
+            cursor: pointer;
+        }
+
+        #main-content {
+            display: none;
+        }
+
+        #main-content a {
             font-size: 2em;
             font-weight: bold;
             text-decoration: none;
@@ -35,7 +52,7 @@
             100% { color: red; }
         }
 
-        a:hover {
+        #main-content a:hover {
             text-decoration: underline;
         }
 
@@ -45,23 +62,28 @@
     </style>
 </head>
 <body>
-    <a href="mailto:contact@codite.me">[ COMING SOON ]</a>
-    <audio id="background-music" loop>
-        <source src="bg-music.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <div id="enter">
+        <h1>[ click to enter ]</h1>
+    </div>
+    <div id="main-content">
+        <a href="mailto:contact@codite.me">[ COMING SOON ]</a>
+        <audio id="background-music" loop>
+            <source src="bg-music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
-            var audio = document.getElementById("background-music");
-            audio.volume = 0.4;
-            audio.play().catch(error => {
-                console.log("Autoplay failed:", error);
-            });
-
-            document.body.addEventListener('click', function() {
-                audio.play();
+            $('#enter').click(function() {
+                $('#enter').hide();
+                $('#main-content').show();
+                var audio = document.getElementById("background-music");
+                audio.volume = 0.4;
+                audio.play().catch(error => {
+                    console.log("Autoplay failed:", error);
+                });
             });
         });
     </script>
